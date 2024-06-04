@@ -19,12 +19,16 @@
   width: 100%;
 }
 
-.newsletter-form__field-wrapper .field__input {
+/* .newsletter-form__field-wrapper .field__input-new {
   padding-right: 5rem;
-}
+  background-color: white;
+  border-radius: 8px !important;
+} */
 
-.newsletter-form__field-wrapper .field {
+.newsletter-form__field-wrapper .field-new {
   z-index: 0;
+  display: flex;
+  gap: 1rem;
 }
 
 .newsletter-form__message {
@@ -44,11 +48,16 @@
 
 .newsletter-form__button {
   width: 4.4rem;
-  margin: 0;
-  right: var(--inputs-border-width);
+  /* margin: 0; */
+  /* right: var(--inputs-border-width);
   top: 0;
-  height: 100%;
+  height: 100%; */
   z-index: 2;
+  display: flex !important;
+  box-sizing: border-box;
+  align-items: center;
+  justify-items: center;
+  border: 1px solid rgba(var(--color-foreground));
 }
 
 .newsletter-form__button:focus-visible {
