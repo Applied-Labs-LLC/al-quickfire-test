@@ -61,23 +61,25 @@
             endif
           -%}
           <div
-            class="footer__blocks-wrapper grid grid--1-col grid--2-col grid--4-col-tablet {{ footer_grid_class }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+            class="footer__blocks-wrapper footer__blocks-wrapper--custom grid grid--1-col grid--2-col grid--4-col-tablet {{ footer_grid_class }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
             {% if settings.animations_reveal_on_scroll %}
               data-cascade
             {% endif %}
           >
             {%- for block in section.blocks -%}
               <div
-                class="footer-block grid__item{% if block.type == 'link_list' %} footer-block--menu{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                class="footer-block  grid__item{% if block.type == 'link_list' %} footer-block--menu{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %} footer-block--custom"
                 {{ block.shopify_attributes }}
                 {% if settings.animations_reveal_on_scroll %}
                   data-cascade
                   style="--animation-order: {{ forloop.index }};"
                 {% endif %}
               >
-                {%- if block.settings.heading != blank -%}
-                  <h2 class="footer-block__heading inline-richtext">{{- block.settings.heading -}}</h2>
-                {%- endif -%}
+                {% if block.type == 'text' %}
+                  <h2 class="footer-block__heading inline-richtext">{{ block.settings.heading }}</h2>
+                {% else %}
+                  <h2 class="footer-block__heading inline-richtext">{{ block.settings.menu.title }}</h2>
+                {% endif %}
 
                 {%- case block.type -%}
                   {%- when '@app' -%}
@@ -332,7 +334,6 @@
         {
           "type": "inline_richtext",
           "id": "heading",
-          "default": "Quick links",
           "label": "t:sections.footer.blocks.link_list.settings.heading.label"
         },
         {
