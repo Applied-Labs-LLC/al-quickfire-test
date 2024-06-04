@@ -9,7 +9,7 @@
           "type": "image",
           "settings": {
             "image": "shopify:\/\/shop_images\/logo-footer.png",
-            "image_width": 260,
+            "image_width": 50,
             "alignment": ""
           }
         },
@@ -17,14 +17,14 @@
           "type": "link_list",
           "settings": {
             "heading": "Quick links",
-            "menu": "footer"
+            "menu": "qf-commerce"
           }
         },
         "link_list_RnaKCG": {
           "type": "link_list",
           "settings": {
             "heading": "Quick links",
-            "menu": "footer"
+            "menu": "information"
           }
         },
         "link_list_3LU437": {
@@ -34,11 +34,11 @@
             "menu": "footer"
           }
         },
-        "link_list_zKwhGg": {
-          "type": "link_list",
+        "text_iDkQRe": {
+          "type": "text",
           "settings": {
-            "heading": "Quick links",
-            "menu": "footer"
+            "heading": "Get in touch",
+            "subtext": "<h4>Address Line Here<br\/>Address Line Here<br\/>Address Line Here<br\/>Address Line Here<br\/><br\/><strong>01234 567890<br\/><br\/>hello@qfcommerce.com<\/strong><\/h4>"
           }
         }
       },
@@ -47,7 +47,7 @@
         "link_list_ndXyrb",
         "link_list_RnaKCG",
         "link_list_3LU437",
-        "link_list_zKwhGg"
+        "text_iDkQRe"
       ],
       "settings": {
         "color_scheme": "scheme-2",
