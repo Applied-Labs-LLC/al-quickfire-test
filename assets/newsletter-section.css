@@ -93,7 +93,7 @@
 }
 @media screen and (max-width: 750px) {
   .newsletter__wrapper-new {
-    flex-direction: column !important;
+    flex-direction: column;
     gap: 2rem;
   }
   .newsletter {
