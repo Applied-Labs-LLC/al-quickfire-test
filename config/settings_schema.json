@@ -109,6 +109,13 @@
         "content": "t:settings_schema.typography.settings.header__1.content"
       },
       {
+        "type": "checkbox",
+        "id": "use_custom_fonts",
+        "label": "t:settings_schema.typography.settings.use_custom_fonts.label",
+        "info": "t:settings_schema.typography.settings.use_custom_fonts.info",
+        "default": true
+      },
+      {
         "type": "font_picker",
         "id": "type_header_font",
         "default": "assistant_n4",
