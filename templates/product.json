@@ -101,8 +101,8 @@
         "heading_3z6amY": {
           "type": "heading",
           "settings": {
-            "heading": "Subscribe to our emails",
-            "heading_size": "h1"
+            "heading": "<strong>Get 10-% off. Sign up today.<\/strong>",
+            "heading_size": "h2"
           }
         },
         "paragraph_CGgYxh": {
@@ -126,7 +126,7 @@
         "color_scheme": "scheme-3",
         "full_width": true,
         "padding_top": 40,
-        "padding_bottom": 52
+        "padding_bottom": 40
       }
     }
   },
