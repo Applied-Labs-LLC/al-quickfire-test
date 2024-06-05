@@ -16,7 +16,7 @@
 {%- endstyle -%}
 
 <div class="newsletter center {% if section.settings.full_width == false %}newsletter--narrow page-width{% endif %}">
-  <div class="newsletter__wrapper newsletter__wrapper-new color-{{ section.settings.color_scheme }} gradient content-container isolate{% if section.settings.full_width %} content-container--full-width{% endif %} section-{{ section.id }}-padding">
+  <div class="newsletter__wrapper color-{{ section.settings.color_scheme }} gradient content-container isolate{% if section.settings.full_width %} content-container--full-width{% endif %} section-{{ section.id }}-padding">
     {%- for block in section.blocks -%}
       {%- case block.type -%}
         {%- when '@app' -%}
@@ -44,18 +44,19 @@
                   style="--animation-order: {{ forloop.index }};"
                 {% endif %}
               >
-                <div class="field-new">
+                <div class="field">
                   <div class="input-container">
                     <input
                       id="NewsletterForm--{{ section.id }}"
                       type="email"
                       name="contact[email]"
-                      class="field__input-new"
+                      class="field__input"
                       value="{{ form.email }}"
                       aria-required="true"
                       autocorrect="off"
                       autocapitalize="off"
                       autocomplete="email"
+                      placeholder="{{ 'newsletter.label' | t }}"
                       {% if form.errors %}
                         autofocus
                         aria-invalid="true"
@@ -63,13 +64,13 @@
                       {% elsif form.posted_successfully? %}
                         aria-describedby="Newsletter-success--{{ section.id }}"
                       {% endif %}
-                      placeholder="{{ 'newsletter.label' | t }}"
+
                       required
                     >
                   </div>
                   <button
                     type="submit"
-                    class="newsletter-form__button field__button-new"
+                    class="newsletter-form__button field__button"
                     name="commit"
                     id="Subscribe"
                     aria-label="{{ 'newsletter.button_label' | t }}"
@@ -151,7 +152,7 @@
       "step": 4,
       "unit": "px",
       "label": "t:sections.all.padding.padding_bottom",
-      "default": 52
+      "default": 40
     }
   ],
   "blocks": [
@@ -188,19 +189,7 @@
         }
       ]
     },
-    {
-      "type": "paragraph",
-      "name": "t:sections.newsletter.blocks.paragraph.name",
-      "limit": 1,
-      "settings": [
-        {
-          "type": "richtext",
-          "id": "text",
-          "default": "<p>Be the first to know about new collections and exclusive offers.</p>",
-          "label": "t:sections.newsletter.blocks.paragraph.settings.paragraph.label"
-        }
-      ]
-    },
+
     {
       "type": "email_form",
       "name": "t:sections.newsletter.blocks.email_form.name",
@@ -217,9 +206,7 @@
         {
           "type": "heading"
         },
-        {
-          "type": "paragraph"
-        },
+
         {
           "type": "email_form"
         }

@@ -16,13 +16,19 @@
 }
 
 .newsletter-form__field-wrapper {
-  width: 100%;
+  width: max-content;
 }
 
-.newsletter-form__field-wrapper .field-new {
+.newsletter-form__field-wrapper .field {
   z-index: 0;
   display: flex;
-  gap: 1rem;
+  gap: 1.6rem;
+  &::after,
+  &:hover::after {
+    border: unset;
+    border-radius: unset;
+    box-shadow: none;
+  }
 }
 
 .newsletter-form__message {
@@ -49,6 +55,8 @@
   align-items: center;
   justify-items: center;
   border: 1px solid rgba(var(--color-foreground));
+  height: 54px;
+  width: 54px;
 }
 
 .newsletter-form__button:focus-visible {
