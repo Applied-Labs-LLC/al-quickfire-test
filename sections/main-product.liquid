@@ -34,6 +34,7 @@
 
   <script src="{{ 'product-info.js' | asset_url }}" defer="defer"></script>
   <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'product-tabs.js' | asset_url }}" defer="defer"></script>
   {%- if product.quantity_price_breaks_configured? -%}
     <script src="{{ 'show-more.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'price-per-item.js' | asset_url }}" defer="defer"></script>
@@ -560,9 +561,9 @@
                                   -%}
                                     <li>
                                       {%- if block.settings.enable_quick_add -%}
-                                        {% assign quick_add = "standard" %}
+                                        {% assign quick_add = 'standard' %}
                                       {%- else -%}
-                                        {% assign quick_add = "none" %}
+                                        {% assign quick_add = 'none' %}
                                       {%- endif -%}
                                       {% render 'card-product',
                                         card_product: product,
@@ -677,12 +678,10 @@
         </div>
       </modal-dialog>
     {%- endfor -%}
-
     {%- if product.media.size > 0 -%}
       <script src="{{ 'product-modal.js' | asset_url }}" defer="defer"></script>
       <script src="{{ 'media-gallery.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
-
     {%- if first_3d_model -%}
       <script type="application/json" id="ProductJSON-{{ product.id }}">
         {{ product.media | where: 'media_type', 'model' | json }}
@@ -742,6 +741,44 @@
         ]
       }
     </script>
+  </div>
+  <div class="tabs-container animate--slide-in scroll-trigger" data-cascade style="--animation-order: 0;">
+    <div class="page-width">
+      <div class="tabs-button_container" data-name="tabs-buttons">
+        <button data-index="1" data-name="tabs-button" class="tabs-button active">Product Description</button>
+        <button data-index="2" data-name="tabs-button" class="tabs-button">Size Guide</button>
+        <button data-index="3" data-name="tabs-button" class="tabs-button">Delifvery&Returns</button>
+        <button data-index="4" data-name="tabs-button" class="tabs-button">Reviews</button>
+      </div>
+      <div class="tabs-line">
+        <div class="underline"></div>
+      </div>
+      <div class="tabs-body_container">
+        <div data-index="1" data-name="tab" class="tabs-body active">
+          {{ product.description }}
+        </div>
+        <div data-index="2" data-name="tab" class="tabs-body">
+          <img
+            class="size-guide_img"
+            src="{{product.metafields.custom.size_guide |  image_url}}"
+            alt="{{product.title}}"
+            height="55rem"
+            width="100%"
+          >
+        </div>
+        <div data-index="3" data-name="tab" class="tabs-body">
+          {% for policy in shop.policies %}
+            {% if policy.title == 'Refund policy' or policy.title == 'Shipping policy' %}
+            {% endif %}
+            <h5 class="policy-title">{{ policy.title }}</h5>
+            <div class="policy-body">
+              {{ policy.body }}
+            </div>
+          {% endfor %}
+        </div>
+        <div data-index="4" data-name="tab" class="tabs-body">tabs 4</div>
+      </div>
+    </div>
   </div>
 </section>
 
