@@ -1,7 +1,7 @@
 {% liquid
   # Parameters
-  assign output_faces = output_faces | default: nil
-  assign output_variables = output_variables | default: nil
+  assign output_faces = output_faces | default: null
+  assign output_variables = output_variables | default: null
 
   # Target fonts
   assign body_font_fallback = settings.type_body_font.fallback_families
@@ -34,19 +34,17 @@
 
 {% if output_faces %}
   {% if settings.use_custom_fonts %}
-
     {% style %}
       @font-face {
-        font-family: "Gilroy-Regular";
+        font-family: 'Gilroy-Regular';
         font-weight: 400;
         font-style: normal;
         font-display: swap;
-        src: url("{{ 'Gilroy-Regular' | asset_url }}") format("font/ttf");
+        src: url("{{ 'Gilroy-Regular.ttf' | asset_url }}") format('ttf');
       }
     {% endstyle %}
 
   {% else %}
-
     {% # Render Font Faces %}
     {%- liquid
       assign body_font_bold = settings.type_body_font | font_modify: 'weight', 'bold'
@@ -61,21 +59,18 @@
       {{ body_font_bold_italic | font_face: font_display: 'swap' }}
       {{ settings.type_header_font | font_face: font_display: 'swap' }}
     {% endstyle %}
-
   {% endif %}
 {% endif %}
 
 {% # Render Font Variables %}
 {% if output_variables %}
-  --font-body-family: {{ body_font_family }}, {{ body_font_fallback }};
-  --font-body-style: {{ body_font_style }};
-  --font-body-weight: {{ body_font_weight }};
-  --font-body-weight-bold: {{ body_font_weight | plus: body_font_weight_min | at_most: body_font_weight_max }};
+  --font-body-family: {{ body_font_family }}, {{ body_font_fallback }}; --font-body-style: {{ body_font_style }};
+  --font-body-weight: {{ body_font_weight }}; --font-body-weight-bold:
+  {{ body_font_weight | plus: body_font_weight_min | at_most: body_font_weight_max }};
 
-  --font-heading-family: {{ heading_font_family }}, {{ heading_font_fallback }};
-  --font-heading-style: {{ heading_font_style }};
-  --font-heading-weight: {{ heading_font_weight }};
+  --font-heading-family: {{ heading_font_family }}, {{ heading_font_fallback }}; --font-heading-style:
+  {{ heading_font_style }}; --font-heading-weight: {{ heading_font_weight }};
 
-  --font-body-scale: {{ settings.body_scale | divided_by: 100.0 }};
-  --font-heading-scale: {{ settings.heading_scale | times: 1.0 | divided_by: settings.body_scale }};
+  --font-body-scale: {{ settings.body_scale | divided_by: 100.0 }}; --font-heading-scale:
+  {{ settings.heading_scale | times: 1.0 | divided_by: settings.body_scale }};
 {% endif %}

@@ -101,14 +101,8 @@
         "heading_3z6amY": {
           "type": "heading",
           "settings": {
-            "heading": "<strong>Get 10-% off. Sign up today.<\/strong>",
+            "heading": "<strong>Get 10%. Sign up today!<\/strong>",
             "heading_size": "h2"
-          }
-        },
-        "paragraph_CGgYxh": {
-          "type": "paragraph",
-          "settings": {
-            "text": "<p>Be the first to know about new collections and exclusive offers.<\/p>"
           }
         },
         "email_form_L3YmKM": {
@@ -119,7 +113,6 @@
       },
       "block_order": [
         "heading_3z6amY",
-        "paragraph_CGgYxh",
         "email_form_L3YmKM"
       ],
       "settings": {
