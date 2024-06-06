@@ -28,3 +28,30 @@
   width: 10rem;
   padding: 0.5rem;
 }
+@media (min-width: 750px) {
+  .footer__content-top .footer__blocks-wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .footer__blocks-wrapper .footer-block {
+    width: 100%;
+  }
+}
+@media (min-width: 850px) {
+  .footer__content-top .footer__blocks-wrapper {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+@media (max-width: 750px) {
+  .footer__content-top .footer__blocks-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .footer__blocks-wrapper .footer-block {
+    width: 100%;
+  }
+  .footer__content-top .footer__blocks-wrapper > *:first-child {
+    grid-column: 1 / -1;
+  }
+}
