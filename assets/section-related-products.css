@@ -3,31 +3,40 @@
 }
 
 .related-products__heading {
-  margin: 0 0 4rem;
   font-size: 2rem;
   font-family: Gilroy-Bold;
+  margin-bottom: 6rem;
 }
 
-@media screen and (max-width: 750px) {
-  .related-products .grid {
-    flex-wrap: nowrap;
-    position: relative;
-    scroll-snap-type: x mandatory;
-    align-items: center;
-    overflow-x: auto;
-    width: 100%;
-  }
+.related-products__buttons {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+}
 
-  .related-products .grid__item {
-    scroll-snap-align: center;
-    flex-shrink: 0;
-    width: 85%;
+.slider-button.related-products__button {
+  box-shadow: 0 0 0.9rem 0.1rem rgb(var(--color-foreground), 0.1);
+  background-color: rgb(var(--color-background));
+  transition: all 300ms linear;
+  border-radius: 100%;
+  border: none;
+  height: 4rem;
+  width: 4rem;
+
+  &:hover {
+    box-shadow: 0 0 0.9rem 0.1rem rgb(var(--color-foreground), 0.2);
+    transform: scale(108%);
+    cursor: pointer;
   }
 }
 
+.related-products .slider-counter {
+  font-size: 1.5rem;
+  gap: 0.3rem;
+}
 
-@media screen and (min-width: 750px) {
-  .related-products__heading {
-    margin-bottom: 6rem;
-  }
+.related-products__button-icon {
+  color: rgb(var(--color-button-text));
+  height: 1.8rem;
+  width: 1.8rem;
 }
