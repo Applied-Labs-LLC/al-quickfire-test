@@ -9,7 +9,7 @@
           "type": "image",
           "settings": {
             "image": "shopify:\/\/shop_images\/logo-footer.png",
-            "image_width": 260,
+            "image_width": 60,
             "alignment": ""
           }
         },
@@ -24,7 +24,7 @@
           "type": "link_list",
           "settings": {
             "heading": "Quick links",
-            "menu": "footer"
+            "menu": "qf-commerce"
           }
         },
         "link_list_RnaKCG": {
@@ -59,9 +59,9 @@
         "enable_language_selector": true,
         "payment_enable": false,
         "show_policy": false,
-        "margin_top": 0,
-        "padding_top": 36,
-        "padding_bottom": 36
+        "margin_top": 4,
+        "padding_top": 108,
+        "padding_bottom": 108
       }
     }
   },
