@@ -15,10 +15,12 @@
 .form-container .field__input {
   padding: 1em;
   padding-right: 8rem;
+  padding-left: 3rem;
   border-radius: 5px;
   outline: none;
   border: none;
   height: 54px;
+  min-width: 340px;
   background-color: rgb(var(--color-foreground));
   color: rgb(var(--color-background));
 }

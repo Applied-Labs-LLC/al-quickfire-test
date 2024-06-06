@@ -37,10 +37,23 @@
     {% style %}
       @font-face {
         font-family: 'Gilroy-Regular';
-        font-weight: 400;
+        font-weight: normal;
         font-style: normal;
         font-display: swap;
-        src: url("{{ 'Gilroy-Regular.ttf' | asset_url }}") format('ttf');
+        src: local('Gilroy-Regular'), url('{{ 'Gilroy-Regular.woff' | asset_url }}') format('woff');
+      }
+
+      @font-face {
+        font-family: 'Gilroy-Bold';
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+        src: local('Gilroy-Bold'), url('{{ 'Gilroy-Bold.woff' | asset_url }}') format('woff');
+      }
+
+      .inline-richtext strong,
+      .rte strong {
+        font-family: Gilroy-Bold;
       }
     {% endstyle %}
 
