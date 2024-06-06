@@ -1353,6 +1353,24 @@ button.shopify-payment-button__button--unbranded {
   stroke: rgb(var(--color-button-text));
 }
 
+.button--accent {
+  border-radius: var(--buttons-radius-outset);
+  background-color: rgb(var(--color-button));
+  color: rgb(var(--color-button-text));
+  font-family: Gilroy-Bold;
+  text-decoration: none;
+  justify-content: center;
+  display: inline-flex;
+  align-items: center;
+  line-height: 1.8rem;
+  min-height: 4.7rem;
+  padding: 0 3rem;
+}
+
+.button-full {
+  width: 100%;
+}
+
 /* Button - social share */
 
 .share-button {
