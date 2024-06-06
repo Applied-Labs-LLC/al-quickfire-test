@@ -27,6 +27,10 @@ We recommend using Dawn as a starting point for theme development. [Learn more o
 
 Please note that the main branch may include code for features not yet released. The "stable" version of Dawn is available in the theme store.
 
+## Theme Customizations
+
+* Using Gilroy font which can be enabled/disabled from theme settings
+
 ## Staying up to date with Dawn changes
 
 Say you're building a new theme off Dawn but you still want to be able to pull in the latest changes, you can add a remote `upstream` pointing to this Dawn repository.

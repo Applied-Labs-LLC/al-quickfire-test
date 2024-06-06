@@ -177,6 +177,10 @@
     "typography": {
       "name": "Typography",
       "settings": {
+        "use_custom_fonts": {
+          "label": "Use custom fonts",
+          "info": "This will override all settings with the Gilroy Font"
+        },
         "type_header_font": {
           "label": "Font",
           "info": "Selecting a different font can affect the speed of your store. [Learn more about system fonts.](https:\/\/help.shopify.com\/manual\/online-store\/os\/store-speed\/improving-speed#fonts)"

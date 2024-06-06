@@ -1,0 +1,81 @@
+{% liquid
+  # Parameters
+  assign output_faces = output_faces | default: nil
+  assign output_variables = output_variables | default: nil
+
+  # Target fonts
+  assign body_font_fallback = settings.type_body_font.fallback_families
+  assign body_font_family = settings.type_body_font.family
+  assign body_font_style = settings.type_body_font.style
+  assign body_font_weight = settings.type_body_font.weight
+  assign body_font_weight_min = 300
+  assign body_font_weight_max = 1000
+
+  assign heading_font_fallback = settings.type_header_font.fallback_families
+  assign heading_font_family = settings.type_header_font.family
+  assign heading_font_style = settings.type_header_font.style
+  assign heading_font_weight = settings.type_header_font.weight
+
+  # Custom Font Variables
+  if settings.use_custom_fonts
+    assign body_font_fallback = 'sans-serif'
+    assign body_font_family = 'Gilroy-Regular'
+    assign body_font_style = 'normal'
+    assign body_font_weight = 400
+    assign body_font_weight_min = 400
+    assign body_font_weight_max = 700
+
+    assign heading_font_fallback = body_font_fallback
+    assign heading_font_family = body_font_family
+    assign heading_font_style = body_font_style
+    assign heading_font_weight = body_font_weight
+  endif
+%}
+
+{% if output_faces %}
+  {% if settings.use_custom_fonts %}
+
+    {% style %}
+      @font-face {
+        font-family: "Gilroy-Regular";
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+        src: url("{{ 'Gilroy-Regular' | asset_url }}") format("font/ttf");
+      }
+    {% endstyle %}
+
+  {% else %}
+
+    {% # Render Font Faces %}
+    {%- liquid
+      assign body_font_bold = settings.type_body_font | font_modify: 'weight', 'bold'
+      assign body_font_italic = settings.type_body_font | font_modify: 'style', 'italic'
+      assign body_font_bold_italic = body_font_bold | font_modify: 'style', 'italic'
+    %}
+
+    {% style %}
+      {{ settings.type_body_font | font_face: font_display: 'swap' }}
+      {{ body_font_bold | font_face: font_display: 'swap' }}
+      {{ body_font_italic | font_face: font_display: 'swap' }}
+      {{ body_font_bold_italic | font_face: font_display: 'swap' }}
+      {{ settings.type_header_font | font_face: font_display: 'swap' }}
+    {% endstyle %}
+
+  {% endif %}
+{% endif %}
+
+{% # Render Font Variables %}
+{% if output_variables %}
+  --font-body-family: {{ body_font_family }}, {{ body_font_fallback }};
+  --font-body-style: {{ body_font_style }};
+  --font-body-weight: {{ body_font_weight }};
+  --font-body-weight-bold: {{ body_font_weight | plus: body_font_weight_min | at_most: body_font_weight_max }};
+
+  --font-heading-family: {{ heading_font_family }}, {{ heading_font_fallback }};
+  --font-heading-style: {{ heading_font_style }};
+  --font-heading-weight: {{ heading_font_weight }};
+
+  --font-body-scale: {{ settings.body_scale | divided_by: 100.0 }};
+  --font-heading-scale: {{ settings.heading_scale | times: 1.0 | divided_by: settings.body_scale }};
+{% endif %}
