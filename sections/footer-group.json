@@ -9,7 +9,7 @@
           "type": "image",
           "settings": {
             "image": "shopify:\/\/shop_images\/logo-footer.png",
-            "image_width": 60,
+            "image_width": 260,
             "alignment": ""
           }
         },
@@ -27,7 +27,7 @@
             "menu": "information"
           }
         },
-        "link_list_4yzdee": {
+        "link_list_ndXyrb": {
           "type": "link_list",
           "settings": {
             "heading": "Important",
@@ -46,7 +46,7 @@
         "image_7yeT7P",
         "link_list_3LU437",
         "link_list_RnaKCG",
-        "link_list_4yzdee",
+        "link_list_ndXyrb",
         "text_xc9bBA"
       ],
       "settings": {
@@ -59,7 +59,7 @@
         "enable_language_selector": true,
         "payment_enable": false,
         "show_policy": false,
-        "margin_top": 4,
+        "margin_top": 0,
         "padding_top": 108,
         "padding_bottom": 108
       }
