@@ -78,7 +78,7 @@
                   style="--animation-order: {{ forloop.index }};"
                 {% endif %}
               >
-                {% if block.type == 'text' %}
+                {%- if block.settings.heading.size > 0 -%}
                   <h2 class="footer-block__heading inline-richtext">{{ block.settings.heading }}</h2>
                 {% else %}
                   <h2 class="footer-block__heading inline-richtext">{{ block.settings.menu.title }}</h2>

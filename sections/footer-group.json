@@ -20,18 +20,18 @@
             "menu": "qf-commerce"
           }
         },
-        "link_list_ndXyrb": {
-          "type": "link_list",
-          "settings": {
-            "heading": "Quick links",
-            "menu": "qf-commerce"
-          }
-        },
         "link_list_RnaKCG": {
           "type": "link_list",
           "settings": {
             "heading": "Information",
             "menu": "information"
+          }
+        },
+        "link_list_4yzdee": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Important",
+            "menu": "footer"
           }
         },
         "text_xc9bBA": {
@@ -45,8 +45,8 @@
       "block_order": [
         "image_7yeT7P",
         "link_list_3LU437",
-        "link_list_ndXyrb",
         "link_list_RnaKCG",
+        "link_list_4yzdee",
         "text_xc9bBA"
       ],
       "settings": {
