@@ -3,7 +3,31 @@
 }
 
 .related-products__heading {
-  margin: 0 0 6rem;
+  margin: 0 0 4rem;
   font-size: 2rem;
   font-family: Gilroy-Bold;
+}
+
+@media screen and (max-width: 750px) {
+  .related-products .grid {
+    flex-wrap: nowrap;
+    position: relative;
+    scroll-snap-type: x mandatory;
+    align-items: center;
+    overflow-x: auto;
+    width: 100%;
+  }
+
+  .related-products .grid__item {
+    scroll-snap-align: center;
+    flex-shrink: 0;
+    width: 85%;
+  }
+}
+
+
+@media screen and (min-width: 750px) {
+  .related-products__heading {
+    margin-bottom: 6rem;
+  }
 }

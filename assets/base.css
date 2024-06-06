@@ -1365,6 +1365,10 @@ button.shopify-payment-button__button--unbranded {
   line-height: 1.8rem;
   min-height: 4.7rem;
   padding: 0 3rem;
+
+  &:hover {
+    box-shadow: 0 0 0 2px rgba(var(--color-button-text), 0.2);
+  }
 }
 
 .button-full {
