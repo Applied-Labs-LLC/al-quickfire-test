@@ -1,6 +1,45 @@
 .newsletter__wrapper {
   padding-right: calc(4rem / var(--font-body-scale));
   padding-left: calc(4rem / var(--font-body-scale));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6rem;
+}
+
+.form-container {
+  display: flex;
+  height: 100%;
+}
+
+.form-container .field__input {
+  padding: 1em;
+  padding-right: 8rem;
+  padding-left: 3rem;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  height: 54px;
+  min-width: 340px;
+  background-color: rgb(var(--color-foreground));
+  color: rgb(var(--color-background));
+}
+.form-container .field__input::placeholder {
+  color: rgb(var(--color-background));
+  opacity: 1;
+}
+.form-container .field__button {
+  border-radius: 5px;
+  color: rgba(var(--color-foreground));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: unset;
+  & > svg {
+    height: 1.5rem;
+    width: 1.5rem;
+  }
 }
 
 @media screen and (min-width: 750px) {
@@ -18,6 +57,9 @@
 .newsletter__wrapper > * + * {
   margin-top: 2rem;
 }
+.newsletter__wrapper .form-container {
+  margin: 0;
+}
 
 .newsletter__wrapper > * + .newsletter-form {
   margin-top: 3rem;
@@ -30,7 +72,7 @@
 }
 
 .newsletter__wrapper .newsletter-form__field-wrapper {
-  max-width: 36rem;
+  max-width: max-content;
 }
 
 .newsletter-form__field-wrapper .newsletter-form__message {
@@ -46,5 +88,21 @@
   .newsletter__button {
     flex-shrink: 0;
     margin: 0 0 0 1rem;
+  }
+  .form-container .field__input {
+    width: 30rem;
+  }
+}
+@media screen and (max-width: 750px) {
+  .newsletter__wrapper {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .newsletter {
+    padding: 0;
+  }
+  .form-container .field__input {
+    width: 70vw;
+    padding: 1em;
   }
 }
