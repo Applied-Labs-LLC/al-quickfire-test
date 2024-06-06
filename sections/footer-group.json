@@ -34,18 +34,11 @@
             "menu": "information"
           }
         },
-        "link_list_zKwhGg": {
-          "type": "link_list",
-          "settings": {
-            "heading": "Quick links",
-            "menu": "footer"
-          }
-        },
         "text_xc9bBA": {
           "type": "text",
           "settings": {
-            "heading": "Heading",
-            "subtext": "<p>Share contact information, store details, and brand content with your customers.<\/p>"
+            "heading": "Get In Touch",
+            "subtext": "<p>4 Barton Way<br\/>Norwich<br\/>NR1 1DL<br\/><br\/><strong>01234 567890<br\/><\/strong><a href=\"#\" title=\"#\"><strong>hello@qfcommerce.com<\/strong><\/a><\/p>"
           }
         }
       },
@@ -54,7 +47,6 @@
         "link_list_3LU437",
         "link_list_ndXyrb",
         "link_list_RnaKCG",
-        "link_list_zKwhGg",
         "text_xc9bBA"
       ],
       "settings": {
