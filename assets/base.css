@@ -1356,7 +1356,7 @@ button.shopify-payment-button__button--unbranded {
   border-radius: var(--buttons-radius-outset);
   background-color: rgb(var(--color-button));
   color: rgb(var(--color-button-text));
-  font-family: Gilroy-Bold;
+  font-family: var(--font-family-bold);
   text-decoration: none;
   justify-content: center;
   display: inline-flex;

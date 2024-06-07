@@ -308,7 +308,7 @@
   margin-bottom: 0;
   font-weight: 700;
   font-size: 1.6rem;
-  font-family: Gilroy-Bold;
+  font-family: var(--font-family-bold);
 }
 
 .card__heading:last-child {
@@ -602,5 +602,5 @@
 
 .card__price .price {
   font-size: 2rem;
-  font-family: Gilroy-Bold;
+  font-family: var(--font-family-bold);
 }
