@@ -1566,18 +1566,24 @@ a.product__text {
   flex-direction: column;
   justify-content: center;
 }
-.size-guide .size-guide_right {
-  flex: 2;
+.size-guide_left {
+  list-style-type: none;
 }
 .size-left_item {
   display: flex;
-  gap: 2rem;
+  gap: 2.5rem;
+  counter-increment: list-counter;
   align-items: center;
 }
-.size-guide_letter {
-  width: 3rem;
-  height: 3rem;
-  padding: 1rem;
+.size-guide_text {
+  width: 90%;
+}
+
+.size-left_item::before {
+  content: counter(list-counter, upper-alpha) ' ';
+  width: 2em;
+  height: 2em;
+  padding: 1em;
   border-radius: 50%;
   font-size: 1.5rem;
   display: flex;
@@ -1585,9 +1591,13 @@ a.product__text {
   align-items: center;
   background-color: #fff;
   color: #d5d5d5;
-
   border: 1px solid #d5d5d5;
+  flex: 1;
 }
+.size-guide .size-guide_right {
+  flex: 2;
+}
+
 .size-guide_img {
   object-fit: cover;
   width: 100%;
