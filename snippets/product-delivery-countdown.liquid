@@ -1,0 +1,57 @@
+<style>
+  .product__media-wrapper {
+    position: relative;
+  }
+  .product-delivery-countdown {
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: rgba(255, 255, 255, 0.5);
+    text-align: center;
+    text-transform: uppercase;
+    z-index: 3;
+    width: 100%;
+    font-size: 1.5rem;
+    padding: 0.5em 1em;
+    font-variant-numeric: tabular-nums; // so the widths of the numbers are equal
+  }
+  
+  .product-delivery-countdown b {
+    font-family: Gilroy-Bold;
+  }
+  
+</style>
+<div class="product-delivery-countdown" hidden id="product-delivery-countdown">
+  {{ 'products.product.countdown' | t }}
+</div>
+<script>
+  (function(){
+    const $countDownEl = document.querySelector('#product-delivery-countdown');
+    const elementText = {{ 'products.product.countdown' | t | json }};
+    
+    const digitFormatter = new Intl.NumberFormat('en-US', { 
+      minimumIntegerDigits: 2
+    });
+
+    
+    const countDownDate = new Date().setHours(23,59,59,999); // date object for tomorrow
+    const intervalId = setInterval(function() {
+      $countDownEl.removeAttribute('hidden');
+      const now = new Date().getTime();
+        
+      const distance = countDownDate - now;
+        
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      
+      $countDownEl.innerHTML = elementText.replace('%time%', `<b>${digitFormatter.format(hours)}:${digitFormatter.format(minutes)}:${digitFormatter.format(seconds)}</b>`);
+        
+      if (distance < 0) {
+        clearInterval(x);
+        $countDownEl.setAttribute('hidden', true);
+      }
+    }, 1000);
+  })()
+</script>
