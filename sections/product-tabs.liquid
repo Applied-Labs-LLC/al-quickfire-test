@@ -4,42 +4,47 @@
 %}
 
 {{ 'section-product-tabs.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'product-tabs.js' | asset_url }}" defer="defer"></script>
 
 <div
   class="tabs-container animate--slide-in scroll-trigger color-{{ section.settings.color_scheme }}"
   style="--animation-order: 0;"
   data-cascade
 >
-  <ul class="tabs-button_container page-width" data-name="tabs-buttons">
+
+  {% # Controls %}
+  <ul class="tabs-button_container page-width">
     <li class="tabs-button_item">
-      <button data-index="1" data-name="tabs-button" class="tabs-button active">
+      <button data-tab-controls="1" class="tabs-button active">
         {{ 'products.tabs.description' | t }}
       </button>
     </li>
     <li class="tabs-button_item">
-      <button data-index="2" data-name="tabs-button" class="tabs-button">
+      <button data-tab-controls="2" class="tabs-button">
         {{ 'products.tabs.size_guide' | t }}
       </button>
     </li>
     <li class="tabs-button_item">
-      <button data-index="3" data-name="tabs-button" class="tabs-button">
+      <button data-tab-controls="3" class="tabs-button">
         {{ 'products.tabs.delivery' | t }}
       </button>
     </li>
     <li class="tabs-button_item">
-      <button data-index="4" data-name="tabs-button" class="tabs-button">
+      <button data-tab-controls="4" class="tabs-button">
         {{ 'products.tabs.reviews' | t }}
       </button>
     </li>
   </ul>
 
+  {% # Line Separator %}
   <div class="tabs-line">
     <div class="underline"></div>
   </div>
 
+  {% # Body %}
   <div class="tabs-body_container page-width">
     {% # Description %}
-    <div data-index="1" data-name="tab" class="tabs-body tabs-body--narrow active">
+    <div data-tab-index="1" class="tabs-body tabs-body--narrow active">
       <details class="tabs-body-collapse">
         <summary class="tabs-title tabs-body--show-mobile">
           {{ 'products.tabs.description' | t }}
@@ -55,7 +60,7 @@
     </div>
 
     {% # Size Guide %}
-    <div data-index="2" data-name="tab" class="tabs-body">
+    <div data-tab-index="2" class="tabs-body">
       {%- capture size_guide -%}
         <div class="size-guide">
           <ol class="size-guide_left">
@@ -63,10 +68,10 @@
               <li class="size-left_item">
                 <p class="size-guide_text">
                   {{ 'products.size_guide.width' | t }}:
-                  <b>
+                  <span class="size-guide_text--bold">
                     {{- metafields.width.value }}
                     {{ metafields.width.unit -}}
-                  </b>
+                  </span>
                 </p>
               </li>
             {% endif %}
@@ -74,10 +79,10 @@
               <li class="size-left_item">
                 <p class="size-guide_text">
                   {{ 'products.size_guide.depth' | t }}:
-                  <b>
+                  <span class="size-guide_text--bold">
                     {{- metafields.depth.value }}
                     {{ metafields.depth.unit -}}
-                  </b>
+                  </span>
                 </p>
               </li>
             {% endif %}
@@ -85,10 +90,10 @@
               <li class="size-left_item">
                 <p class="size-guide_text">
                   {{ 'products.size_guide.height' | t }}:
-                  <b>
+                  <span class="size-guide_text--bold">
                     {{- metafields.height_under.value }}
                     {{ metafields.height_under.unit -}}
-                  </b>
+                  </span>
                 </p>
               </li>
             {% endif %}
@@ -96,21 +101,22 @@
               <li class="size-left_item">
                 <p class="size-guide_text">
                   {{ 'products.size_guide.seat' | t }}:
-                  <b>
+                  <span class="size-guide_text--bold">
                     {{- metafields.seat_width.value }}
                     {{ metafields.seat_width.unit -}}
-                  </b>
+                  </span>
                 </p>
               </li>
             {% endif %}
+
             {% if metafields.backrest_height %}
               <li class="size-left_item">
                 <p class="size-guide_text">
                   {{ 'products.size_guide.backrest' | t }}:
-                  <b>
+                  <span class="size-guide_text--bold">
                     {{- metafields.backrest_height.value }}
                     {{ metafields.backrest_height.unit -}}
-                  </b>
+                  </span>
                 </p>
               </li>
             {% endif %}
@@ -142,7 +148,7 @@
     </div>
 
     {% # Policy %}
-    <div data-index="3" data-name="tab" class="tabs-body tabs-body--narrow">
+    <div data-tab-index="3" class="tabs-body tabs-body--narrow">
       {%- capture delivery_returns -%}
         {% for block in delivery_returns.children %}
           {% for child in block.children %}
@@ -166,7 +172,7 @@
     </div>
 
     {% # Reviews %}
-    <div data-index="4" data-name="tab" class="tabs-body tabs-body--narrow">
+    <div data-tab-index="4" class="tabs-body tabs-body--narrow">
       <details class="tabs-body-collapse">
         <summary class="tabs-title tabs-body--show-mobile">
           {{ 'products.tabs.reviews' | t }}
@@ -184,8 +190,6 @@
     </div>
   </div>
 </div>
-
-<script src="{{ 'product-tabs.js' | asset_url }}" defer="defer"></script>
 
 {% schema %}
 {

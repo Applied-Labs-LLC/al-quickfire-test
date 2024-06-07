@@ -1,15 +1,18 @@
-const buttons_container = document.querySelector('[data-name="tabs-buttons"]');
-const buttons = buttons_container.querySelectorAll('[data-name="tabs-button"]');
+// Get buttons on init
+const buttons = [...document.querySelectorAll('[data-tab-controls]')];
+const tabs = [...document.querySelectorAll('[data-tab-index]')];
 
-buttons_container.addEventListener('click', (event) => {
-  if (event.target.closest('[data-name="tabs-button"]')) {
-    // set active button
+// Add event listen to each button
+buttons.forEach((button) => {
+  button.addEventListener('click', () => {
+    const index = button.getAttribute('data-tab-controls');
+
+    // Toggle button active class
     buttons.forEach((button) => button.classList.remove('active'));
-    event.target.closest('[data-name="tabs-button"]').classList.add('active');
+    button.classList.add('active');
 
-    // set tabs body
-    document.querySelectorAll('[data-name="tab"]').forEach((tab) => tab.classList.remove('active'));
-    const tab = event.target.closest('[data-name="tabs-button"]').getAttribute('data-index');
-    document.querySelector(`.tabs-body[data-index="${tab}"]`).classList.add('active');
-  }
+    // Toggle body active class
+    tabs.forEach((tab) => tab.classList.remove('active'));
+    document.querySelector(`[data-tab-index="${index}"]`).classList.add('active');
+  });
 });

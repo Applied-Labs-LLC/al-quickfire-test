@@ -36,7 +36,7 @@
   position: relative;
   background-color: transparent;
   white-space: nowrap;
-  padding: 2.5rem  0;
+  padding: 4rem  0;
 
   &:after {
     transition: all 0.3s ease;
@@ -54,8 +54,9 @@
 
 .tabs-button.active {
   color: rgb(var(--color-foreground));
-  cursor: default;
+  font-family: var(--font-family-bold);
   font-weight: 700;
+  cursor: default;
 
   &:after {
     opacity: 1;
@@ -85,8 +86,8 @@
 }
 .tabs-body {
   display: none;
-  font-size: 1.8rem;
-  height: 100%;
+  font-size: 1.6rem;
+  min-height: 20rem;
 }
 .tabs-body--narrow {
   padding-left: 3rem;
@@ -130,6 +131,11 @@
 }
 .size-guide_text {
   width: 90%;
+}
+
+.size-guide_text--bold {
+  font-family: var(--font-family-bold);
+  font-weight: 700;
 }
 
 .size-left_item::before {
@@ -196,6 +202,7 @@
   .tabs-body {
     margin: 1rem 0;
     display: block;
+    min-height: 0;
   }
   .tabs-body--narrow {
     padding-left: 0;
