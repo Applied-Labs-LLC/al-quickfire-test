@@ -159,13 +159,16 @@
               {{ card_product.title | escape }}
             </a>
           </h3>
+
           <div class="card-information">
             {%- if show_vendor -%}
               <span class="visually-hidden">{{ 'accessibility.vendor' | t }}</span>
               <div class="caption-with-letter-spacing light">{{ card_product.vendor }}</div>
             {%- endif -%}
 
-            <span class="caption-large light">{{ block.settings.description | escape }}</span>
+            {% unless block.settings.description == blank %}
+              <span class="caption-large light">{{ block.settings.description | escape }}</span>
+            {% endunless %}
 
             {%- if show_rating and card_product.metafields.reviews.rating.value != blank -%}
               {% liquid
@@ -203,7 +206,9 @@
               </p>
             {%- endif -%}
 
-            {% render 'price', product: card_product, price_class: '', show_compare_at_price: true %}
+            <div class="card__price">
+              {% render 'price', product: card_product, price_class: '', show_compare_at_price: true %}
+            </div>
             {%- if card_product.quantity_price_breaks_configured? -%}
               {% if card_product.variants.size == 1 and quick_add == 'bulk' %}
                 {% liquid
@@ -286,6 +291,13 @@
               {% endif %}
             {%- endif -%}
           </div>
+
+          <a
+            href="{{ product.url }}"
+            class="button button--accent button-full"
+          >
+            {{ 'products.facets.view' | t }}
+          </a>
         </div>
         {% if quick_add == 'standard' %}
           <div class="quick-add no-js-hidden">

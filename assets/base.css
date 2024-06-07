@@ -1353,6 +1353,28 @@ button.shopify-payment-button__button--unbranded {
   stroke: rgb(var(--color-button-text));
 }
 
+.button--accent {
+  border-radius: var(--buttons-radius-outset);
+  background-color: rgb(var(--color-button));
+  color: rgb(var(--color-button-text));
+  font-family: Gilroy-Bold;
+  text-decoration: none;
+  justify-content: center;
+  display: inline-flex;
+  align-items: center;
+  line-height: 1.8rem;
+  min-height: 4.7rem;
+  padding: 0 3rem;
+
+  &:hover {
+    box-shadow: 0 0 0 2px rgba(var(--color-button-text), 0.2);
+  }
+}
+
+.button-full {
+  width: 100%;
+}
+
 /* Button - social share */
 
 .share-button {
@@ -3453,4 +3475,16 @@ details-disclosure > details {
   .animate--hover-vertical-lift .button:not([disabled]).button--secondary:hover:after {
     --border-offset: 0px; /* Prevent the border from growing on buttons when this effect is on. */
   }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }

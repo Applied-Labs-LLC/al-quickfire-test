@@ -137,6 +137,9 @@
 .card__information {
   grid-row-start: 2;
   padding: 1.3rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
 .card:not(.ratio) > .card__content {
@@ -303,6 +306,9 @@
 .card__heading {
   margin-top: 0;
   margin-bottom: 0;
+  font-weight: 700;
+  font-size: 1.6rem;
+  font-family: Gilroy-Bold;
 }
 
 .card__heading:last-child {
@@ -401,7 +407,7 @@
     transform: scale(1.03);
   }
 
-  .underline-links-hover:hover a {
+  .underline-links-hover:hover h3 a {
     text-decoration: underline;
     text-underline-offset: 0.3rem;
   }
@@ -592,4 +598,9 @@
   .grid__item:nth-child(8n) .product-card-wrapper:hover .shape--blob {
     clip-path: polygon(var(--shape--blob-5));
   }
+}
+
+.card__price .price {
+  font-size: 2rem;
+  font-family: Gilroy-Bold;
 }

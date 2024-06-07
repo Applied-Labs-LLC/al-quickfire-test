@@ -20,10 +20,10 @@
   outline: none;
   border: none;
   height: 54px;
-  min-width: 340px;
   background-color: rgb(var(--color-foreground));
   color: rgb(var(--color-background));
 }
+
 .form-container .field__input::placeholder {
   color: rgb(var(--color-background));
   opacity: 1;
@@ -43,6 +43,10 @@
 }
 
 @media screen and (min-width: 750px) {
+  .form-container .field__input {
+    min-width: 340px;
+  }
+
   .newsletter__wrapper {
     padding-right: 9rem;
     padding-left: 9rem;

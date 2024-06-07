@@ -209,7 +209,8 @@
       "sort_button": "Sort",
       "sort_by_label": "Sort by:",
       "to": "To",
-      "clear_filter": "Remove filter"
+      "clear_filter": "Remove filter",
+      "view": "View Item"
     }
   },
   "templates": {

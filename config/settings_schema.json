@@ -105,15 +105,15 @@
     "name": "t:settings_schema.typography.name",
     "settings": [
       {
-        "type": "header",
-        "content": "t:settings_schema.typography.settings.header__1.content"
-      },
-      {
         "type": "checkbox",
         "id": "use_custom_fonts",
         "label": "t:settings_schema.typography.settings.use_custom_fonts.label",
         "info": "t:settings_schema.typography.settings.use_custom_fonts.info",
         "default": true
+      },
+      {
+        "type": "header",
+        "content": "t:settings_schema.typography.settings.header__1.content"
       },
       {
         "type": "font_picker",
