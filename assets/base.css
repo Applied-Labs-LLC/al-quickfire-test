@@ -1375,7 +1375,7 @@ button.shopify-payment-button__button--unbranded {
 }
 
 .button--primary {
-  font-family: Gilroy-Bold;
+  font-family: var(--font-family-bold);
 }
 
 /* Button - social share */
@@ -1680,10 +1680,11 @@ details[open] > .share-button__fallback {
 
 .select .icon-caret,
 .customer select + svg {
-  height: 0.6rem;
+  height: 2rem;
   pointer-events: none;
   position: absolute;
-  top: calc(50% - 0.2rem);
+  transform: translateY(-50%);
+  top: calc(50%);
   right: calc(var(--inputs-border-width) + 1.5rem);
 }
 
@@ -1820,7 +1821,7 @@ input[type='checkbox'] {
 }
 
 .form__label [data-selected-swatch-value] {
-  font-family: Gilroy-Bold;
+  font-family: var(--font-family-bold);
 }
 
 .form__message {

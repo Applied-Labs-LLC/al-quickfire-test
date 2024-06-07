@@ -15,11 +15,11 @@
     padding: 0.5em 1em;
     font-variant-numeric: tabular-nums; // so the widths of the numbers are equal
   }
-  
+
   .product-delivery-countdown b {
-    font-family: Gilroy-Bold;
+    font-family: var(--font-family-bold);
   }
-  
+
 </style>
 <div class="product-delivery-countdown" hidden id="product-delivery-countdown">
   {{ 'products.product.countdown' | t }}
@@ -28,26 +28,26 @@
   (function(){
     const $countDownEl = document.querySelector('#product-delivery-countdown');
     const elementText = {{ 'products.product.countdown' | t | json }};
-    
-    const digitFormatter = new Intl.NumberFormat('en-US', { 
+
+    const digitFormatter = new Intl.NumberFormat('en-US', {
       minimumIntegerDigits: 2
     });
 
-    
+
     const countDownDate = new Date().setHours(23,59,59,999); // date object for tomorrow
     const intervalId = setInterval(function() {
       $countDownEl.removeAttribute('hidden');
       const now = new Date().getTime();
-        
+
       const distance = countDownDate - now;
-        
+
       const days = Math.floor(distance / (1000 * 60 * 60 * 24));
       const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
       const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-      
+
       $countDownEl.innerHTML = elementText.replace('%time%', `<b>${digitFormatter.format(hours)}:${digitFormatter.format(minutes)}:${digitFormatter.format(seconds)}</b>`);
-        
+
       if (distance < 0) {
         clearInterval(x);
         $countDownEl.setAttribute('hidden', true);
