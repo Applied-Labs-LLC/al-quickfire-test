@@ -636,7 +636,6 @@ summary .icon-caret {
   position: absolute;
   height: 0.6rem;
   right: 1.5rem;
-  top: calc(50% - 0.2rem);
 }
 
 summary::-webkit-details-marker {
@@ -2382,7 +2381,7 @@ product-info .loading__spinner:not(.hidden) ~ *,
 
   .header--middle-left {
     grid-template-areas: 'heading navigation icons';
-    grid-template-columns: auto auto 1fr;
+    grid-template-columns: auto 6fr 1fr;
     column-gap: 2rem;
   }
 
@@ -2505,6 +2504,7 @@ product-info .loading__spinner:not(.hidden) ~ *,
   grid-area: icons;
   justify-self: end;
   padding-right: 0.8rem;
+  gap: 3rem;
 }
 
 .header__icons .shopify-app-block {
@@ -2540,20 +2540,19 @@ product-info .loading__spinner:not(.hidden) ~ *,
 .header__icon .icon {
   height: 2rem;
   width: 2rem;
-  fill: none;
   vertical-align: middle;
 }
 
 .header__icon,
+.header__icon--account .icon,
 .header__icon--cart .icon {
-  height: 4.4rem;
-  width: 4.4rem;
+  height: 2.3rem;
+  width: 2.3rem;
   padding: 0;
 }
 
 .header__icon--cart {
   position: relative;
-  margin-right: -1.2rem;
 }
 
 .header__icon--menu[aria-expanded='true']::before {
@@ -2739,7 +2738,6 @@ details[open] > .header__submenu {
 
 /* Header menu */
 .header__inline-menu {
-  margin-left: -1.2rem;
   grid-area: navigation;
   display: none;
 }
@@ -2751,7 +2749,9 @@ details[open] > .header__submenu {
 
 @media screen and (min-width: 990px) {
   .header__inline-menu {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: end;
   }
 
   .header--top-center .header__inline-menu {
@@ -2774,7 +2774,12 @@ details[open] > .header__submenu {
 .header__menu-item {
   padding: 1.2rem;
   text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.15rem;
+  font-size: 1.5rem;
   color: rgba(var(--color-foreground), 0.75);
+  display: inline-flex;
+  align-items: center;
 }
 
 .header__menu-item:hover {
@@ -2799,7 +2804,7 @@ details[open]:hover > .header__menu-item {
 }
 
 details[open] > .header__menu-item .icon-caret {
-  transform: rotate(180deg);
+  transform: rotate(180deg) translateY(50%);
 }
 
 .header__active-menu-item {
@@ -2852,7 +2857,10 @@ details[open] > .header__menu-item .icon-caret {
 }
 
 .header__menu-item .icon-caret {
-  right: 0.8rem;
+  transform: translateY(-50%);
+  top: 45%;
+  right: 0;
+  height: 2rem;
 }
 
 .header__submenu .icon-caret {
