@@ -1,0 +1,250 @@
+/* TABS */
+.tabs-container {
+  padding: 1.5rem 0;
+  background-color: rgb(var(--color-background));
+}
+
+.tabs-button_container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 3.5rem;
+  width: 100%;
+}
+
+.tabs-button_item {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.tabs-button {
+  font-size: 1.6rem;
+  line-height: calc(1 + 0.6 / var(--font-body-scale));
+  letter-spacing: 0.1rem;
+  font-weight: normal;
+  text-transform: capitalize;
+  font-variant-numeric: tabular-nums;
+
+  border: 0;
+  color: #000;
+  display: block;
+  cursor: pointer;
+  position: relative;
+  background-color: transparent;
+  white-space: nowrap;
+  padding: 4rem  0;
+
+  &:after {
+    transition: all 0.3s ease;
+    height: 2px;
+    width: 100%;
+    background-color: rgb(var(--color-foreground));
+    content: "";
+    display: block;
+    position: absolute;
+    opacity: 0;
+    bottom: 0;
+    left: 0;
+  }
+}
+
+.tabs-button.active {
+  color: rgb(var(--color-foreground));
+  font-family: var(--font-family-bold);
+  font-weight: 700;
+  cursor: default;
+
+  &:after {
+    opacity: 1;
+  }
+}
+
+.tabs-line {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: white;
+  position: relative;
+}
+.underline {
+  display: block ;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  background-color: rgb(var(--color-foreground));
+  width: 0;
+  transition: width 0.3s ease, left 0.3s ease;
+}
+.tabs-body_container {
+  padding: 8rem 6rem;
+  height: auto;
+}
+.tabs-body {
+  display: none;
+  font-size: 1.6rem;
+  min-height: 20rem;
+}
+.tabs-body--narrow {
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+.policy-title {
+  font-size: 2rem;
+  line-height: calc(1 + 0.6 / var(--font-body-scale));
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: rgb(var(--color-foreground));
+  margin-bottom: 1.6rem;
+}
+.policy-body {
+  font-size: 1.7rem;
+  line-height: calc(1 + 0.6 / var(--font-body-scale));
+  letter-spacing: 0.1rem;
+  color: rgba(var(--color-foreground), 0.75);
+}
+.size-guide {
+  display: flex;
+  gap: 3rem;
+}
+.size-guide .size-guide_left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.size-guide_left {
+  list-style-type: none;
+  padding: 0 2rem;
+  margin: 0;
+}
+.size-left_item {
+  display: flex;
+  align-items: center;
+  counter-increment: list-counter;
+  gap: 2.5rem;
+}
+.size-guide_text {
+  width: 90%;
+}
+
+.size-guide_text--bold {
+  font-family: var(--font-family-bold);
+  font-weight: 700;
+}
+
+.size-left_item::before {
+  content: counter(list-counter, upper-alpha) ' ';
+  width: 2em;
+  height: 2em;
+  padding: 1em;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  color: #d5d5d5;
+  border: 1px solid #d5d5d5;
+  flex: 1;
+}
+.size-guide .size-guide_right {
+  flex: 2;
+}
+
+.size-guide_img {
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+}
+
+.reviews {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.tabs-body.active {
+  display: block;
+}
+
+@media screen and (max-width: 749px) {
+  .tabs-button_container {
+    display: none;
+  }
+
+  .tabs-button {
+    flex: 1;
+    font-size: 1.3rem;
+    white-space: nowrap;
+  }
+  .tabs-line {
+    display: none;
+  }
+  .underline {
+    display: none;
+  }
+  .tabs-body_container {
+    height: auto;
+    max-height: fit-content;
+    padding: 4rem 3rem;
+  }
+  .size-guide {
+    flex-direction: column-reverse;
+    gap: 1.5rem;
+  }
+  .tabs-body {
+    margin: 1rem 0;
+    display: block;
+    min-height: 0;
+  }
+  .tabs-body--narrow {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+/* Mobile display */
+
+.tabs-body-collapse .icon {
+  transition: all 150ms ease;
+}
+
+.tabs-body-collapse[open] .icon {
+  transform: rotate(180deg);
+}
+
+.tabs-title {
+  font-family: var(--font-family-bold);
+  font-weight: 700;
+  font-size: 2rem;
+  margin: 3rem 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tabs-title .icon {
+  height: 2rem;
+  width: 2rem;
+}
+
+.tabs-body--show-desktop {
+  display: none;
+}
+
+@media screen and (min-width: 750px) {
+  .tabs-body--show-mobile {
+    display: none;
+  }
+
+  .tabs-body--show-desktop {
+    display: block;
+  }
+}

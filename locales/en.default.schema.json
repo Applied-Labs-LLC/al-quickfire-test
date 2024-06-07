@@ -2622,6 +2622,9 @@
         "name": "Email signup"
       }
     },
+    "product-tabs": {
+      "name": "Product Tabs"
+    },
     "email-signup-banner": {
       "name": "Email signup banner",
       "settings": {

@@ -34,6 +34,7 @@
 
   <script src="{{ 'product-info.js' | asset_url }}" defer="defer"></script>
   <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+
   {%- if product.quantity_price_breaks_configured? -%}
     <script src="{{ 'show-more.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'price-per-item.js' | asset_url }}" defer="defer"></script>
@@ -564,9 +565,9 @@
                                   -%}
                                     <li>
                                       {%- if block.settings.enable_quick_add -%}
-                                        {% assign quick_add = "standard" %}
+                                        {% assign quick_add = 'standard' %}
                                       {%- else -%}
-                                        {% assign quick_add = "none" %}
+                                        {% assign quick_add = 'none' %}
                                       {%- endif -%}
                                       {% render 'card-product',
                                         card_product: product,
@@ -681,12 +682,10 @@
         </div>
       </modal-dialog>
     {%- endfor -%}
-
     {%- if product.media.size > 0 -%}
       <script src="{{ 'product-modal.js' | asset_url }}" defer="defer"></script>
       <script src="{{ 'media-gallery.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
-
     {%- if first_3d_model -%}
       <script type="application/json" id="ProductJSON-{{ product.id }}">
         {{ product.media | where: 'media_type', 'model' | json }}

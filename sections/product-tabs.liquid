@@ -1,0 +1,211 @@
+{% liquid
+  assign metafields = product.metafields.custom
+  assign delivery_returns = product.metafields.custom.delivery_returns.value
+%}
+
+{{ 'section-product-tabs.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'product-tabs.js' | asset_url }}" defer="defer"></script>
+
+<div
+  class="tabs-container animate--slide-in scroll-trigger color-{{ section.settings.color_scheme }}"
+  style="--animation-order: 0;"
+  data-cascade
+>
+
+  {% # Controls %}
+  <ul class="tabs-button_container page-width">
+    <li class="tabs-button_item">
+      <button data-tab-controls="1" class="tabs-button active">
+        {{ 'products.tabs.description' | t }}
+      </button>
+    </li>
+    <li class="tabs-button_item">
+      <button data-tab-controls="2" class="tabs-button">
+        {{ 'products.tabs.size_guide' | t }}
+      </button>
+    </li>
+    <li class="tabs-button_item">
+      <button data-tab-controls="3" class="tabs-button">
+        {{ 'products.tabs.delivery' | t }}
+      </button>
+    </li>
+    <li class="tabs-button_item">
+      <button data-tab-controls="4" class="tabs-button">
+        {{ 'products.tabs.reviews' | t }}
+      </button>
+    </li>
+  </ul>
+
+  {% # Line Separator %}
+  <div class="tabs-line">
+    <div class="underline"></div>
+  </div>
+
+  {% # Body %}
+  <div class="tabs-body_container page-width">
+    {% # Description %}
+    <div data-tab-index="1" class="tabs-body tabs-body--narrow active">
+      <details class="tabs-body-collapse">
+        <summary class="tabs-title tabs-body--show-mobile">
+          {{ 'products.tabs.description' | t }}
+          {% render 'icon-caret' %}
+        </summary>
+
+        {{ product.description }}
+      </details>
+
+      <div class="tabs-body--show-desktop">
+        {{ product.description }}
+      </div>
+    </div>
+
+    {% # Size Guide %}
+    <div data-tab-index="2" class="tabs-body">
+      {%- capture size_guide -%}
+        <div class="size-guide">
+          <ol class="size-guide_left">
+            {% if metafields.width %}
+              <li class="size-left_item">
+                <p class="size-guide_text">
+                  {{ 'products.size_guide.width' | t }}:
+                  <span class="size-guide_text--bold">
+                    {{- metafields.width.value }}
+                    {{ metafields.width.unit -}}
+                  </span>
+                </p>
+              </li>
+            {% endif %}
+            {% if metafields.depth %}
+              <li class="size-left_item">
+                <p class="size-guide_text">
+                  {{ 'products.size_guide.depth' | t }}:
+                  <span class="size-guide_text--bold">
+                    {{- metafields.depth.value }}
+                    {{ metafields.depth.unit -}}
+                  </span>
+                </p>
+              </li>
+            {% endif %}
+            {% if metafields.height_under %}
+              <li class="size-left_item">
+                <p class="size-guide_text">
+                  {{ 'products.size_guide.height' | t }}:
+                  <span class="size-guide_text--bold">
+                    {{- metafields.height_under.value }}
+                    {{ metafields.height_under.unit -}}
+                  </span>
+                </p>
+              </li>
+            {% endif %}
+            {% if metafields.seat_width %}
+              <li class="size-left_item">
+                <p class="size-guide_text">
+                  {{ 'products.size_guide.seat' | t }}:
+                  <span class="size-guide_text--bold">
+                    {{- metafields.seat_width.value }}
+                    {{ metafields.seat_width.unit -}}
+                  </span>
+                </p>
+              </li>
+            {% endif %}
+
+            {% if metafields.backrest_height %}
+              <li class="size-left_item">
+                <p class="size-guide_text">
+                  {{ 'products.size_guide.backrest' | t }}:
+                  <span class="size-guide_text--bold">
+                    {{- metafields.backrest_height.value }}
+                    {{ metafields.backrest_height.unit -}}
+                  </span>
+                </p>
+              </li>
+            {% endif %}
+          </ol>
+          <div class="size-guide_right">
+            <img
+              class="size-guide_img"
+              src="{{ metafields.dimension_image |  image_url }}"
+              alt="{{ product.title }}"
+              height="55rem"
+              width="100%"
+            >
+          </div>
+        </div>
+      {%- endcapture -%}
+
+      <details class="tabs-body-collapse">
+        <summary class="tabs-title tabs-body--show-mobile">
+          {{ 'products.tabs.size_guide' | t }}
+          {% render 'icon-caret' %}
+        </summary>
+
+        {{ size_guide }}
+      </details>
+
+      <div class="tabs-body--show-desktop">
+        {{ size_guide }}
+      </div>
+    </div>
+
+    {% # Policy %}
+    <div data-tab-index="3" class="tabs-body tabs-body--narrow">
+      {%- capture delivery_returns -%}
+        {% for block in delivery_returns.children %}
+          {% for child in block.children %}
+            {{ child.value }}
+          {% endfor %}
+        {% endfor %}
+      {%- endcapture -%}
+
+      <details class="tabs-body-collapse">
+        <summary class="tabs-title tabs-body--show-mobile">
+          {{ 'products.tabs.delivery' | t }}
+          {% render 'icon-caret' %}
+        </summary>
+
+        {{ delivery_returns }}
+      </details>
+
+      <div class="tabs-body--show-desktop">
+        {{ delivery_returns }}
+      </div>
+    </div>
+
+    {% # Reviews %}
+    <div data-tab-index="4" class="tabs-body tabs-body--narrow">
+      <details class="tabs-body-collapse">
+        <summary class="tabs-title tabs-body--show-mobile">
+          {{ 'products.tabs.reviews' | t }}
+          {% render 'icon-caret' %}
+        </summary>
+
+        <p>{{ 'products.facets.no_reviews' | t }}</p>
+      </details>
+
+      <div class="tabs-body--show-desktop">
+        <div class="reviews">
+          {{ 'products.facets.no_reviews' | t }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.product-tabs.name",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.product-tabs.name"
+    }
+  ]
+}
+{% endschema %}

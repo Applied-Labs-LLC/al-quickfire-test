@@ -211,7 +211,21 @@
       "sort_by_label": "Sort by:",
       "to": "To",
       "clear_filter": "Remove filter",
-      "view": "View Item"
+      "view": "View Item",
+      "no_reviews": "No reviews yet"
+    },
+    "size_guide": {
+      "backrest": "Backrest height",
+      "depth": "Depth",
+      "height": "Height under furniture",
+      "seat": "Seat width",
+      "width": "Width"
+    },
+    "tabs": {
+      "description": "Product Description",
+      "size_guide": "Size Guide",
+      "delivery": "Delivery & Returns",
+      "reviews": "Reviews"
     }
   },
   "templates": {
