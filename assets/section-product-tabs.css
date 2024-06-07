@@ -71,7 +71,7 @@
   position: relative;
 }
 .underline {
-  display: block !important;
+  display: block ;
   position: absolute;
   bottom: 0;
   left: 0;
@@ -188,7 +188,7 @@
     display: none;
   }
   .underline {
-    display: none !important;
+    display: none;
   }
   .tabs-body_container {
     height: auto;
