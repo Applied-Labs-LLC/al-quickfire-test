@@ -77,6 +77,12 @@
         "padding_bottom": 12
       }
     },
+    "product_tabs_LBFqXF": {
+      "type": "product-tabs",
+      "settings": {
+        "color_scheme": "scheme-2"
+      }
+    },
     "related-products": {
       "type": "related-products",
       "settings": {
@@ -125,6 +131,7 @@
   },
   "order": [
     "main",
+    "product_tabs_LBFqXF",
     "related-products",
     "newsletter_jHW7Pq"
   ]

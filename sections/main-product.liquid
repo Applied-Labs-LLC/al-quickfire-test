@@ -34,7 +34,7 @@
 
   <script src="{{ 'product-info.js' | asset_url }}" defer="defer"></script>
   <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
-  <script src="{{ 'product-tabs.js' | asset_url }}" defer="defer"></script>
+
   {%- if product.quantity_price_breaks_configured? -%}
     <script src="{{ 'show-more.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'price-per-item.js' | asset_url }}" defer="defer"></script>
@@ -741,110 +741,6 @@
         ]
       }
     </script>
-  </div>
-  <div class="tabs-container animate--slide-in scroll-trigger" data-cascade style="--animation-order: 0;">
-    <div class="page-width">
-      <div class="tabs-button_container" data-name="tabs-buttons">
-        <button data-index="1" data-name="tabs-button" class="tabs-button active">Product Description</button>
-        <button data-index="2" data-name="tabs-button" class="tabs-button">Size Guide</button>
-        <button data-index="3" data-name="tabs-button" class="tabs-button">Delivery&Returns</button>
-        <button data-index="4" data-name="tabs-button" class="tabs-button">Reviews</button>
-      </div>
-      <div class="tabs-line">
-        <div class="underline"></div>
-      </div>
-      <div class="tabs-body_container">
-        <div data-index="1" data-name="tab" class="tabs-body active">
-          {{ product.description }}
-        </div>
-        <div data-index="2" data-name="tab" class="tabs-body">
-          {% assign metafields = product.metafields.custom %}
-          <div class="size-guide">
-            <ol class="size-guide_left">
-              {% if metafields.width %}
-                <li class="size-left_item">
-                  <p class="size-guide_text">
-                    Width:
-                    <b>
-                      {{- metafields.width.value }}
-                      {{ metafields.width.unit -}}
-                    </b>
-                  </p>
-                </li>
-              {% endif %}
-              {% if metafields.depth %}
-                <li class="size-left_item">
-                  <p class="size-guide_text">
-                    Depth:
-                    <b>
-                      {{- metafields.depth.value }}
-                      {{ metafields.depth.unit -}}
-                    </b>
-                  </p>
-                </li>
-              {% endif %}
-              {% if metafields.height_under %}
-                <li class="size-left_item">
-                  <p class="size-guide_text">
-                    Height under:
-                    <b>
-                      {{- metafields.height_under.value }}
-                      {{ metafields.height_under.unit -}}
-                    </b>
-                  </p>
-                </li>
-              {% endif %}
-              {% if metafields.seat_width %}
-                <li class="size-left_item">
-                  <p class="size-guide_text">
-                    Seat width:
-                    <b>
-                      {{- metafields.seat_width.value }}
-                      {{ metafields.seat_width.unit -}}
-                    </b>
-                  </p>
-                </li>
-              {% endif %}
-              {% if metafields.backrest_height %}
-                <li class="size-left_item">
-                  <p class="size-guide_text">
-                    Backrest height:
-                    <b>
-                      {{- metafields.backrest_height.value }}
-                      {{ metafields.backrest_height.unit -}}
-                    </b>
-                  </p>
-                </li>
-              {% endif %}
-            </ol>
-            <div class="size-guide_right">
-              <img
-                class="size-guide_img"
-                src="{{metafields.dimension_image |  image_url}}"
-                alt="{{product.title}}"
-                height="55rem"
-                width="100%"
-              >
-            </div>
-          </div>
-        </div>
-        <div data-index="3" data-name="tab" class="tabs-body">
-          {% assign richtext_json = product.metafields.custom.delivery_returns.value %}
-          <div class="policy-body">
-            {% for block in richtext_json.children %}
-              {% for child in block.children %}
-                {{ child.value }}
-              {% endfor %}
-            {% endfor %}
-          </div>
-        </div>
-        <div data-index="4" data-name="tab" class="tabs-body">
-          <div class="reviews">
-            <h5 class="reviews-title">No reviews added yet</h5>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 

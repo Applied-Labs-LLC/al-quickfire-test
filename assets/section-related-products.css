@@ -4,7 +4,7 @@
 
 .related-products__heading {
   font-size: 2rem;
-  font-family: Gilroy-Bold;
+  font-family: var(--font-family-bold);
   margin-bottom: 6rem;
 }
 
