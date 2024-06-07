@@ -23,3 +23,17 @@
   border-style: dashed;
   border-color: rgba(var(--color-foreground), 0.5);
 }
+
+
+.swatch-custom {
+  display: block;
+  overflow: hidden;
+  height: 10rem;
+  width: 10rem;
+}
+
+.swatch-custom img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

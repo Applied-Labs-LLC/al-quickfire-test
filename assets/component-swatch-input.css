@@ -1,6 +1,6 @@
 /* swatch-input lives in its own file for reusability of the swatch in other areas than the product form context */
 .swatch-input__input + .swatch-input__label {
-  --swatch-input--border-radius: 50%;
+  --swatch-input--border-radius: 10px;
   display: inline-block;
   max-width: 100%;
   border-radius: var(--swatch-input--border-radius);
@@ -12,6 +12,8 @@
   transition-duration: var(--duration-short);
   transition-timing-function: ease;
   forced-color-adjust: none;
+  overflow: hidden;
+  border: 0.2rem solid transparent;
 }
 
 .swatch-input__input + .swatch-input__label.swatch-input__label--square {
@@ -21,26 +23,25 @@
 /* Active state */
 .swatch-input__input:active + .swatch-input__label,
 .swatch-input__input:checked + .swatch-input__label {
-  outline: 0.1rem solid rgb(var(--color-foreground));
+  border-color: #FFF;
+  box-shadow: 0 1rem 4rem -1rem rgb(var(--color-foreground))
 }
 
 /* Hover state */
 .swatch-input__input + .swatch-input__label:hover,
 .swatch-input__input:hover + .swatch-input__label {
-  outline: 0.2rem solid rgba(var(--color-foreground), 0.4);
+  border-color: rgba(var(--color-foreground), 0.4);
 }
 
 /* Focus visible */
 .swatch-input__input:focus-visible + .swatch-input__label {
-  outline: 0.2rem solid rgba(var(--color-foreground), 0.5);
-  box-shadow: 0 0 0 0.2rem rgb(var(--color-background)), 0 0 0.1rem 0.5rem rgba(var(--color-foreground), 0.25);
+  border-color: rgba(var(--color-foreground), 0.5);
 }
 
 /* Active and focused */
 .swatch-input__input:active:focus-visible + .swatch-input__label,
 .swatch-input__input:checked:focus-visible + .swatch-input__label {
-  outline: 0.1rem solid rgb(var(--color-foreground));
-  box-shadow: 0 0 0 0.2rem rgb(var(--color-background)), 0 0 0.1rem 0.4rem rgba(var(--color-foreground), 0.25);
+  border-color: rgb(var(--color-foreground));
 }
 
 /* Visually disabled */
@@ -48,7 +49,7 @@
   transition: none;
 }
 .swatch-input__input.visually-disabled:not(:active):not(:checked) + .swatch-input__label:hover {
-  outline: none;
+  border: none;
 }
 
 /* Actually disabled */
@@ -85,3 +86,6 @@
   transform: rotate(-45deg);
   transform-origin: left;
 }
+
+
+
