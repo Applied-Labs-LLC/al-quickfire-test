@@ -48,9 +48,6 @@
 .swatch-input__input.visually-disabled:not(:active):not(:checked) + .swatch-input__label {
   transition: none;
 }
-.swatch-input__input.visually-disabled:not(:active):not(:checked) + .swatch-input__label:hover {
-  border: none;
-}
 
 /* Actually disabled */
 .swatch-input__input:disabled + .swatch-input__label {
