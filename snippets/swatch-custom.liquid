@@ -7,13 +7,20 @@
   {% render 'swatch-custom', value: 'tan' %}
 {% endcomment %}
 
-{% liquid 
+{% liquid
   assign value_normalized = value | downcase | strip
   assign swatch_name = 'swatch-' | append: value_normalized | append: '.png'
   assign swatch_url = swatch_name | file_img_url
+  assign alt_tag = 'Swatch - ' | append: value
+  assign error_url = shop.url | append: '/cdn/shop/files/logo-footer.png?v=1717453140&width=520'
 %}
-<span
-  class="swatch-custom"
->
-  <img src="{{ swatch_url }}" alt="Swatch - {{ value }}" width="50" height="50" onerror='this.onerror=null; this.src="https://al-quickfire-test.myshopify.com/cdn/shop/files/logo-footer.png?v=1717453140&width=520"'>
+
+<span class="swatch-custom">
+  <img
+    src="{{ swatch_url }}"
+    alt="{{ alt_tag }}"
+    width="50"
+    height="50"
+    onerror='this.onerror=null; this.src="{{ error_url }}"'
+  />
 </span>
