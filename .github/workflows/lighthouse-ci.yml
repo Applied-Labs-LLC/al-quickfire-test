@@ -1,7 +1,8 @@
-name: Shopify Lighthouse CI
+name: Shopify Theme & Lighthouse Check
 on: [push]
 jobs:
-  lhci:
+
+  lighthouse-check:
     name: Lighthouse
     runs-on: ubuntu-latest
     steps:
@@ -10,8 +11,18 @@ jobs:
         uses: shopify/lighthouse-ci-action@v1
         with:
           store: ${{ secrets.SHOP_STORE }}
-          access_token: ${{ secrets.SHOP_ACCESS_TOKEN }}
           password: ${{ secrets.SHOP_PASSWORD }}
+          access_token: ${{ secrets.SHOP_ACCESS_TOKEN }}
           lhci_github_token: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
           lhci_min_score_performance: 0.9
           lhci_min_score_accessibility: 0.9
+
+  theme-check:
+    name: Theme Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Theme Check
+        uses: shopify/theme-check-action@v1
+        with:
+          token: ${{ github.token }}
