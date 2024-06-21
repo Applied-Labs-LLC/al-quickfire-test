@@ -13,7 +13,7 @@ jobs:
           store: ${{ secrets.SHOP_STORE }}
           password: ${{ secrets.SHOP_PASSWORD }}
           access_token: ${{ secrets.SHOP_ACCESS_TOKEN }}
-          lhci_github_token: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+          lhci_github_app_token: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
           lhci_min_score_performance: 0.9
           lhci_min_score_accessibility: 0.9
 
@@ -26,3 +26,4 @@ jobs:
         uses: shopify/theme-check-action@v2
         with:
           token: ${{ github.token }}
+          flags: '--fail-level error'
